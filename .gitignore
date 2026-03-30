@@ -1,0 +1,48 @@
+# --- Prerequisites ---
+*.d
+
+# --- Compiled Object files ---
+*.slo
+*.lo
+*.o
+*.obj
+
+# --- Compiled Dynamic libraries ---
+*.so
+*.dylib
+*.dll
+
+# --- Compiled Static libraries ---
+*.lai
+*.la
+*.a
+*.lib
+
+# --- Executables ---
+*.exe
+*.out
+*.app
+
+# --- CMake ---
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+cmake_install.cmake
+install/
+build/
+CMakePresets.json
+CMakeUserPresets.json
+
+# --- Qt / QML ---
+*.qmlc
+*.jsc
+
+# --- IDEs ---
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# --- OS ---
+Thumbs.db
+.DS_Store
