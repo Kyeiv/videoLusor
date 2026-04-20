@@ -2,6 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import QtMultimedia
 import QtQuick.Layouts
+import QtQuick.Dialogs
 
 ApplicationWindow {
     id: root
@@ -16,11 +17,33 @@ ApplicationWindow {
     property int savedWidth: width
     property int savedHeight: height
 
+    menuBar: MenuBar {
+        Menu {
+            title: qsTr("&File")
+            MenuItem {
+                text: qsTr("&Open File...")
+                onTriggered: fileDialog.open()
+            }
+            MenuSeparator {}
+        }
+    }
+
+    FileDialog {
+        id: fileDialog
+        title: "Please choose a video file"
+        nameFilters: ["Video files (*.mp4 *.avi *.mkv *.mov)", "All files (*)"]
+        onAccepted: {
+            mediaPlayer.source = fileDialog.selectedFile
+            mediaPlayer.play()
+            // Ensure controls show up when a new file starts
+            controlBar.interact()
+        }
+    }
+
     MediaPlayer {
         id: mediaPlayer
         videoOutput: videoDisplay
         audioOutput: AudioOutput {}
-        source: "file:///D:/file_example_MP4_1920_18MG.mp4" 
     }
 
     Item {
